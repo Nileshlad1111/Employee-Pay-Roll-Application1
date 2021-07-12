@@ -165,6 +165,7 @@ error-output{
         flex-flow: wrap;
     }
 }
+
 @media only screen and (max-width: 778px){
     .form{
         margin-top: 10px;

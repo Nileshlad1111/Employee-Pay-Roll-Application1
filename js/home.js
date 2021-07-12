@@ -10,7 +10,7 @@ const getEmployeePayrollDataFromStorage = () => {
 }
 const createInnerHtml = () => {
 
-    if(employeePayrollList.length == 0 ) return;
+    // if(employeePayrollList.length == 0 ) return;
 
     const headerHtml = `<tr>
     <th></th>
@@ -22,7 +22,13 @@ const createInnerHtml = () => {
     <th>Actions</th>
     </tr>`;
 
+   
+
     let innerHtml = `${headerHtml}`;
+    if(employeePayrollList.length==0) {
+        document.querySelector('#table-display').innerHTML = innerHtml;
+        return;
+    }
     for(const employeePayrollData of employeePayrollList){
         innerHtml = `${innerHtml}
         <tr>
@@ -31,13 +37,11 @@ const createInnerHtml = () => {
             <td>${employeePayrollData._gender}</td>
             <td>${getDeptHtml(employeePayrollData._department)}</td>
             <td>${employeePayrollData._salary}</td>
-            <td>${stringifyDate(employeePayrollData._startDate)}</td>
+            <td>${formatDate(employeePayrollData._startDate)}</td>
             
             <td>
-                <img id="${employeePayrollData._id}" onclick="remove(this)" 
-                src="../assets/icons/delete-black-18dp.svg" alt="delete" >
-                <img id="${employeePayrollData._id}" onclick="update(this)" 
-                 src="../assets/icons/create-black-18dp.svg" alt="edit">
+                <img id="${employeePayrollData._id}" onclick="remove(this)" src="../assets/icons/delete-black-18dp.svg" alt="delete" >
+                <img id="${employeePayrollData._id}" onclick="update(this)" src="../assets/icons/create-black-18dp.svg" alt="edit">
             </td>
     </tr>`;
     }
@@ -52,12 +56,12 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
-const stringifyDate = (Date) =>{
-    const options = {date:'numeric',month:'short',year:'numeric'};
-    const newDate = !Date ? "undefined" :
-    new Date (Date.parse(Date)).toLocaleDateString('en-IN',options);
-    return newDate;
-}
+// const stringifyDate = (Date) =>{
+//     const options = {date:'numeric',month:'short',year:'numeric'};
+//     const newDate = !Date ? "undefined" :
+//     new Date (Date.parse(Date)).toLocaleDateString('en-IN',options);
+//     return newDate;
+// }
 
 
 const remove = ( node) =>{
@@ -69,9 +73,14 @@ const remove = ( node) =>{
     employeePayrollList.splice(index, 1);
     localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
     document.querySelector(".emp-count").textContent = employeePayrollList.length;
-
     createInnerHtml();
 
 }
 
+const update = (node) => {
+    let employeePayRollData = employeePayrollList.find(emp => emp._id == node.id);
+    if (!employeePayRollData) return;
+    localStorage.setItem('editEmp', JSON.stringify(employeePayRollData));
+    window.location.replace("../pages/employeePayrollForm.html");
+}; 
 

@@ -1,7 +1,5 @@
-//goble variable
 let isUpdate = false;
 let employeePayrollObj = {};
-
 window.addEventListener('DOMContentLoaded', () => {
     const name = document.querySelector("#name");
     const nameError = document.querySelector(".name-error");

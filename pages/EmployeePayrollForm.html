@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Payroll Form</title>
-
     <link rel="stylesheet" href="../css/employeePayrollForm.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header class="header-content header">
         <div class="logo-content">
@@ -22,7 +22,7 @@
     </header>
     <div class="form-content">
         <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
-            <div class="form-head" h1 style="text-align:center">Employee Payroll form</div>
+            <div class="form-head">Employee Payroll form</div>
             <div class="row-content">
                 <label class="label text" for="name">Name</label>
                 <input class="input" type="text" id="name" name="name" placeholder="Enter Your Name" required>
@@ -75,7 +75,7 @@
             </div>
             <div class="row-content">
                 <label class="label text" for="salary">Salary</label>
-                <input class="input" type="range" name="salary" id="salary" min="100000" max="500000" step="100" value="400000">
+                <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
                 <output class="salary-output text" for="salary">400000</output>
             </div>
             <div class="row-content">
@@ -142,9 +142,9 @@
                 <textarea id="notes" class="input" name="Notes" style="height:100px"></textarea>
             </div>
             <div class="buttonParent">
-                <a href="../page/home.html" class="cancelButton button">Cancel</a>
+                <a href="./home.html" class="cancelButton button">Cancel</a>
                 <div class="submit-reset">
-                    <button type="submit" class="button submitButton" id="submitButton" >Submit</button>
+                    <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
@@ -152,7 +152,7 @@
     </div>
     <script src="../js/employeePayrollForm.js" ></script>
     <script src="../js/EmployeePayrollData.js" ></script>
-    <!-- <script src="../js/site_properties.js" ></script> -->
     <script src="../js/utility.js" ></script>
 </body>
+
 </html>

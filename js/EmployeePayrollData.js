@@ -1,26 +1,28 @@
-class EmployeePayrollData{     
-
-    //getter and setter method
-    get id(){
+class EmployeePayrollData{
+    get id () {
         return this._id;
     }
-    set id(id){
+
+    set id (id) {
         this._id = id;
     }
-    get name(){
+
+    get name (){
         return this._name;
     }
-    set name(name) {
+
+    set name (name) {
+
         let nameRegex = RegExp("^[A-Z]{1}[a-zA-Z\\s]{2,}$");
         if (nameRegex.test(name))
             this._name = name;
         else
             throw 'Name is Invalid!'
     }
-    get profilePic(){
+    get profilePic () {
         return this._profilePic;
     }
-    set profilePic(profilePic){
+    set profilePic (profilePic) {
         this._profilePic = profilePic;
     }
     get gender(){
@@ -59,9 +61,8 @@ class EmployeePayrollData{
 
     toString() {
         const empDate = formatDate(this.startDate);
-        return "id = "+this.id+", name = " + this.name + ", profilePic = " +
-        this.profilePic + ", salary = " + this.salary + ", gender = " +
-        this.gender + ", department = " + this.department + ", startDate = " +
-        empDate + ", notes= " + this.notes;
+        return "id = "+this.id+", name = " + this.name + ", profilePic = " + this.profilePic +
+         ", salary = " + this.salary + ", gender = " + this.gender + ", department = " + this.department +
+          ", startDate = " + empDate + ", notes= " + this.notes;
     }
 }
